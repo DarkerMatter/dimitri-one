@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, useEffect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Playlists from './Playlists.tsx';
 
 const usePageTitle = (title: string) => {
-    React.useEffect(() => {
+    useEffect(() => {
         document.title = `Dimitri | ${title}`;
     }, [title]);
 };
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
 };
 
 const NotFound: React.FC = () => {
-    React.useEffect(() => {
+    useEffect(() => {
         window.location.href = 'https://dimitrishepherd.com';
     }, []);
     return null;
