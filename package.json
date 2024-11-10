@@ -8,7 +8,7 @@
     "start": "vite preview"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=20.10.0"
   },
   "dependencies": {
     "react": "^18.3.1",
