@@ -5,7 +5,7 @@ export default defineConfig({
   root: '.', // Specifies the root directory
   plugins: [react()],
   server: {
-    open: true, // Opens the browser automatically
+    open: false, // Opens the browser automatically
     port: 5173, // Use a different port if necessary
   },
   resolve: {
