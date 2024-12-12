@@ -40,3 +40,98 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Updated styles for the Home Page */
+.home-container {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 800px;
+  text-align: justify;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+}
+
+.nav-buttons button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #6a1b9a, #8e24aa); /* Dark purple gradient */
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-buttons button:hover {
+  background: linear-gradient(45deg, #4a148c, #6a1b9a); /* Deeper purple on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.nav-buttons button:active {
+  background: #4a148c; /* Solid deep purple on click */
+  transform: scale(0.95);
+}
+
+/* Loading animation */
+.spinner {
+  margin: 2rem auto;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top-color: cyan;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.home-container h1 {
+  text-align: center;
+  color: cyan;
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.home-container p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.home-container span {
+  font-weight: bold;
+}
+
+.home-container span.yellow {
+  color: yellow;
+}
+
+.home-container span.orange {
+  color: orange;
+}
+
+.home-container span.red {
+  color: red;
+}
+
+.home-container span.cyan {
+  color: cyan;
+}
