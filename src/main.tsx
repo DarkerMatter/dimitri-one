@@ -1,24 +1,11 @@
 // src/main.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import Playlists from './Playlists.tsx';
+import App from './App';
 
-const RedirectToDomain: React.FC = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-        window.location.href = 'https://dimitrishepherd.com';
-    }, [navigate]);
-    return null;
-};
-
+// Render the App component into the root element
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <Router>
-            <Routes>
-                <Route path="/" element={<RedirectToDomain />} />
-                <Route path="/playlists" element={<Playlists />} />
-            </Routes>
-        </Router>
+        <App />
     </React.StrictMode>
 );
