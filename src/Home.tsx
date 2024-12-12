@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './app.css'; // Ensure the updated styles are imported
+import './App.css'; // Ensure the updated styles are imported
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
