@@ -1,20 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css'; // Ensure the updated styles are imported
+import axios from 'axios';
+import './app.css';
 
 const Home: React.FC = () => {
+    const [visitCount, setVisitCount] = useState<number | null>(null);
+    const [loadingVisits, setLoadingVisits] = useState(true);
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
 
-    // Simulate loading for a couple of seconds
     useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 2000);
-        return () => clearTimeout(timer); // Cleanup timer on unmount
-    }, []);
 
-    if (loading) {
-        return <div className="spinner"></div>;
-    }
+        const increaseVisitCounter = async () => {
+            try {
+                // Send the POST request using Axios
+                const response = await axios.post(
+                    'https://api.dimitri.one/v1/counter/increase',
+                    {}, // Empty body (API doesn't specify a payload)
+                    {
+                        headers: {
+                            Accept: 'application/json', // API explicitly requires this
+                        },
+                    }
+                );
+
+                console.log('API Response:', response.data); // Handle success
+                const { success, newCount } = response.data;
+
+                if (success && typeof newCount === 'number') {
+                    setVisitCount(newCount); // Update the visit count
+                } else {
+                    console.error('Unexpected API response format');
+                    setVisitCount(null);
+                }
+
+            } catch (error) {
+                // Handle and log error
+                console.error('Error during API request:', error);
+                setVisitCount(null);
+            } finally {
+                setLoadingVisits(false); // Turn off loading spinner
+            }
+        };
+
+        increaseVisitCounter();
+    }, []);
 
     return (
         <div>
@@ -35,6 +64,18 @@ const Home: React.FC = () => {
                     <br /><br />
                     I also host Minecraft servers for people and a handful of <span className="cyan">Discord</span> bots.
                 </p>
+
+                {/* Display Total Visits */}
+                <div>
+                    <h2>Total Website Visits</h2>
+                    {loadingVisits ? (
+                        <p>Loading visits...</p>
+                    ) : visitCount !== null ? (
+                        <p>{visitCount}</p>
+                    ) : (
+                        <p>Error fetching visit count</p>
+                    )}
+                </div>
             </div>
         </div>
     );
