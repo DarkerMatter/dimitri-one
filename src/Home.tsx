@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './app.css';
+import './App.css';
 
 const Home: React.FC = () => {
     const [visitCount, setVisitCount] = useState<number | null>(null);
