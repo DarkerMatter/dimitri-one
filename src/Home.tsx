@@ -57,7 +57,7 @@ const Home: React.FC = () => {
             <div className="home-container">
                 <h1>About Me</h1>
                 <p>
-                    I am a <span className="yellow">18</span> year old, <span className="orange">JS</span> web developer in the US Navy,
+                    I am a <span className="yellow">19</span> year old, <span className="orange">JS</span> web developer in the US Navy,
                     with initials that placed me in tech from day 1 (<span className="red">DNS</span>).
                     <br /><br />
                     I enjoy being challenged and engaging with projects that require me to work outside my comfort and knowledge set.
