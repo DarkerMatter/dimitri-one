@@ -29,3 +29,5 @@ package-lock.json
 .CLAUDE.md
 .superpowers/*
 
+docs/superpowers/plans/2026-04-03-website-redesign.md
+docs/superpowers/specs/2026-04-03-website-redesign.md
