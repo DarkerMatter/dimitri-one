@@ -27,7 +27,7 @@ export function useGitHubPinned() {
   useEffect(() => {
     axios
       .get<GitHubRepo[]>('https://api.github.com/users/DarkerMatter/repos?per_page=100&sort=updated', {
-        headers: { Accept: 'application/vnd.github.v3+json' },
+        headers: { Accept: 'application/vnd.github+json' },
       })
       .then(({ data }) => {
         const pinned = PINNED_NAMES
