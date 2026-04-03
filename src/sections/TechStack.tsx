@@ -16,7 +16,7 @@ const TechStack: React.FC = () => {
 
     // Desktop: pin section and stagger keys in as user scrolls through
     mm.add('(min-width: 768px)', () => {
-      const keys = gsap.utils.toArray<HTMLElement>('.key-cap');
+      const keys = gsap.utils.toArray<HTMLElement>('.key-cap', containerRef.current);
 
       gsap.set(keys, { opacity: 0, y: 20 });
 
@@ -31,9 +31,8 @@ const TechStack: React.FC = () => {
           const total = keys.length;
           const revealed = Math.floor(progress * total * 1.3); // slight overshoot so all reveal before end
           keys.forEach((key, i) => {
-            if (i < revealed) {
-              gsap.to(key, { opacity: 1, y: 0, duration: 0.3, overwrite: 'auto' });
-            }
+            const shouldReveal = i < revealed;
+            gsap.to(key, { opacity: shouldReveal ? 1 : 0, y: shouldReveal ? 0 : 20, duration: 0.3, overwrite: 'auto' });
           });
         },
       });
@@ -41,7 +40,7 @@ const TechStack: React.FC = () => {
 
     // Mobile: no pin, just fade in on scroll
     mm.add('(max-width: 767px)', () => {
-      const keys = gsap.utils.toArray<HTMLElement>('.key-cap');
+      const keys = gsap.utils.toArray<HTMLElement>('.key-cap', containerRef.current);
       gsap.set(keys, { opacity: 0, y: 20 });
       gsap.to(keys, {
         opacity: 1,
