@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
         <div className="flex gap-3">
           <span>STATUS: ONLINE</span>
           <span>|</span>
-          <span>REGION: US-EAST</span>
+          <span>REGION: US-WEST</span>
         </div>
       </div>
     </footer>

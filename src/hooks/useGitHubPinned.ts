@@ -10,7 +10,7 @@ export interface GitHubRepo {
   html_url: string;
 }
 
-const PINNED_NAMES = ['EndReset', 'dimitri-one', 'scripts', 'xz4'];
+const PINNED_NAMES = ['EndReset', 'dimitri-one', 'scripts', 'fts-gg'];
 
 const CUSTOM_BLURBS: Record<string, string> = {
   'EndReset': 'Minecraft Java plugin that resets Elytras in the End dimension and clears them from chests — keeping the late-game grind alive.',
