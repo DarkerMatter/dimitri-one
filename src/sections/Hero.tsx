@@ -142,7 +142,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[#A8A9AD] text-xs tracking-widest">REGION</span>
-                <span className="text-white font-bold text-xs">US-EAST</span>
+                <span className="text-white font-bold text-xs">US-WEST</span>
               </div>
             </CardBody>
           </Card>
