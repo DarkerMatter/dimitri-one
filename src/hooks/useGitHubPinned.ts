@@ -19,12 +19,27 @@ const CUSTOM_BLURBS: Record<string, string> = {
   'xz4': 'HD2 utility mod.',
 };
 
+const CACHE_KEY = 'gh_pinned_repos';
+const CACHE_TTL = 15 * 60 * 1000; // 15 minutes
+
 export function useGitHubPinned() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    try {
+      const cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        const { data, ts } = JSON.parse(cached);
+        if (Date.now() - ts < CACHE_TTL) {
+          setRepos(data);
+          setLoading(false);
+          return;
+        }
+      }
+    } catch { /* ignore corrupt cache */ }
+
     axios
       .get<GitHubRepo[]>('https://api.github.com/users/DarkerMatter/repos?per_page=100&sort=updated', {
         headers: { Accept: 'application/vnd.github+json' },
@@ -38,6 +53,7 @@ export function useGitHubPinned() {
             description: CUSTOM_BLURBS[r.name] ?? r.description,
           }));
         setRepos(pinned);
+        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ data: pinned, ts: Date.now() })); } catch { /* quota */ }
       })
       .catch(() => setError('Failed to load repos'))
       .finally(() => setLoading(false));

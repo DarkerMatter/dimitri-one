@@ -9,10 +9,23 @@ const Hero: React.FC = () => {
   const [loadingVisits, setLoadingVisits] = useState(true);
 
   useEffect(() => {
+    const COUNTER_KEY = 'visit_counted';
+    const cached = sessionStorage.getItem(COUNTER_KEY);
+
+    if (cached) {
+      // Already counted this session — show cached value, skip POST
+      setVisitCount(Number(cached) || null);
+      setLoadingVisits(false);
+      return;
+    }
+
     axios
       .post('https://api.dimitri.one/v1/counter/increase', {}, { headers: { Accept: 'application/json' } })
       .then(({ data }) => {
-        if (data.success && typeof data.newCount === 'number') setVisitCount(data.newCount);
+        if (data.success && typeof data.newCount === 'number') {
+          setVisitCount(data.newCount);
+          try { sessionStorage.setItem(COUNTER_KEY, String(data.newCount)); } catch { /* quota */ }
+        }
       })
       .catch(() => setVisitCount(null))
       .finally(() => setLoadingVisits(false));
