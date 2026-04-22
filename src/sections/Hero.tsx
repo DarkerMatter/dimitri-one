@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2">
-            {['Full Stack', 'Los Angeles, CA', '19 y/o', 'USN RW3'].map((tag) => (
+            {['Full Stack', 'Port Hueneme, CA', '19 y/o', 'USN RW3'].map((tag) => (
               <span
                 key={tag}
                 className="bg-[#1F1F2E] border border-[#2a2a3a] rounded px-3 py-1 text-xs font-mono text-[#A8A9AD]"
