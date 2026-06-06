@@ -10,12 +10,12 @@ export interface GitHubRepo {
   html_url: string;
 }
 
-const PINNED_NAMES = ['EndReset', 'dimitri-one', 'scripts', 'fts-gg'];
+const PINNED_NAMES = ['EndReset', 'dimitri-one', 'disccotools', 'fts-gg'];
 
 const CUSTOM_BLURBS: Record<string, string> = {
   'EndReset': 'Minecraft Java plugin that resets Elytras in the End dimension and clears them from chests — keeping the late-game grind alive.',
   'dimitri-one': 'This site. React + TypeScript + Vite on Cloudflare Pages with a Cloudflare Workers visit counter backend.',
-  'scripts': 'A lightweight UI for browsing and downloading my shell scripts. Static site, dead simple.',
+  'disccotools': 'A modern replacement for DiscoTools.',
   'xz4': 'HD2 utility mod.',
 };
 
