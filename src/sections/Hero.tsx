@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
               you were always going to end up in tech.
             </p>
             <p>
-              I'm a <span className="text-yellow-400 font-bold">19y/o</span>{' '}
+              I'm a <span className="text-yellow-400 font-bold">20y/o</span>{' '}
               <span className="text-orange-400 font-bold">Full Stack</span> developer
               serving in the <span className="text-[#FF1801] font-bold">US Navy</span> — building
               web apps, Minecraft servers, and Discord bots in whatever time the Navy hasn't claimed.
